@@ -19,10 +19,10 @@ export default async function handler(req, res) {
   try {
     const data = await shopifyGraphQL(query);
 
-    console.log("🔍 Shopify API Raw Response:", JSON.stringify(data, null, 2)); // ✅ Debugging log
+    // console.log("🔍 Shopify API Raw Response:", JSON.stringify(data, null, 2)); 
 
     if (!data || !data.customers || !Array.isArray(data.customers.edges)) {
-      console.error("❌ Unexpected Shopify API response format:", data);
+      console.error("Unexpected Shopify API response format:", data);
       return res.status(500).json({ error: "Invalid Shopify API response" });
     }
 
@@ -38,11 +38,11 @@ export default async function handler(req, res) {
       };
     });
 
-    console.log("✅ Formatted Customers:", customers);
+ //   console.log("Formatted Customers:", customers);
 
     res.status(200).json(customers);
   } catch (error) {
-    console.error("❌ Shopify API Error:", error);
+    console.error("Shopify API Error:", error);
     res.status(500).json({ error: error.message });
   }
 }
