@@ -85,7 +85,7 @@ export default function Home() {
 
       {/* Main Content */}
       <div className="flex-1 max-w-4xl mx-auto p-8">
-        <h1 className="text-2xl font-bold text-center mb-6">MILK SVG LOGO HERE</h1>
+        <img src="/assets/milkdk.svg" alt="Milk Logo" className="w-25 h-25 mx-auto pb-[15px]" />
 
         {/* Customer Selection */}
         <div className="mb-6">
