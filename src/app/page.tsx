@@ -79,7 +79,7 @@ export default function Home() {
   return (
     <div className="flex w-full min-h-screen bg-gray-100">
     {/* Floating Product Navigation (Left) */}
-    <div className="fixed left-4 top-20 w-40 h-80 bg-white shadow-md p-3 rounded-lg hidden lg:block overflow-y-auto">
+    <div className="fixed left-4 top-20 w-60 h-80 bg-white shadow-md p-3 rounded-lg hidden lg:block overflow-y-auto">
       <h2 className="text-md font-semibold mb-2 text-center">Products</h2>
       <ul className="space-y-1">
         {products.map((product) => (
