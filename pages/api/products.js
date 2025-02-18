@@ -35,7 +35,8 @@ export default async function handler(req, res) {
         id: node.id,
         title: node.title,
         price: node.price,
-        quantity: 0, // Default quantity
+        quantity: 0, 
+        productId: node.id,
       })),
     }));
 
