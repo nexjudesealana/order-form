@@ -6,6 +6,7 @@ interface Variant {
   title: string;
   price: string;
   quantity: number;
+  productId: string; 
 }
 
 interface Product {
@@ -52,6 +53,18 @@ export default function Home() {
             }
           : p
       )
+    );
+  };
+
+  // Function to remove an item (set quantity to 0)
+  const removeFromCart = (productId: string, variantId: string) => {
+    setProducts((prev) =>
+      prev.map((product) => ({
+        ...product,
+        variants: product.variants.map((variant) =>
+          variant.id === variantId ? { ...variant, quantity: 0 } : variant
+        ),
+      }))
     );
   };
 
@@ -158,12 +171,23 @@ export default function Home() {
           <p className="text-sm text-gray-500">No items selected</p>
         ) : (
           <ul className="text-sm space-y-2">
-            {cartItems.map((variant) => (
-              <li key={variant.id} className="flex justify-between">
-                <span>{variant.title}</span>
-                <span>{variant.quantity} x ${variant.price}</span>
-              </li>
-            ))}
+            {cartItems.map((variant) => {
+              console.log("Cart Item:", variant); 
+              return (
+                <li key={variant.id} className="flex justify-between items-center">
+                  <div className="flex items-center space-x-2">
+                    <button
+                      onClick={() => removeFromCart(variant.productId, variant.id)}
+                      className="text-red-500 hover:text-red-700 text-lg font-bold"
+                    >
+                      ✕
+                    </button>
+                    <span>{variant.title}</span>
+                  </div>
+                  <span>{variant.quantity} x ${variant.price}</span>
+                </li>
+              );
+            })}
           </ul>
         )}
         <hr className="my-2" />
@@ -177,7 +201,7 @@ export default function Home() {
           </span>
         </div>
         <button
-          className="w-full mt-3 bg-blue-600 text-white p-2 rounded-md hover:bg-blue-700 transition"
+          className="w-full mt-3 bg-black text-white p-2 rounded-md hover:bg-gray-800 transition"
           disabled={cartItems.length === 0}
         >
           Submit Order
