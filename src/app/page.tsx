@@ -142,9 +142,9 @@ export default function Home() {
                 <tbody>
                   {product.variants.map((variant) => (
                     <tr key={variant.id} className="text-center">
-                      <td className="border border-gray-300 p-2">{variant.title}</td>
-                      <td className="border border-gray-300 p-2">${variant.price}</td>
-                      <td className="border border-gray-300 p-2">
+                      <td className="border border-gray-300 p-2 w-1/3">{variant.title}</td>
+                      <td className="border border-gray-300 p-2 w-1/3">${variant.price}</td>
+                      <td className="border border-gray-300 p-2 w-1/3">
                         <input
                           type="number"
                           min="0"
