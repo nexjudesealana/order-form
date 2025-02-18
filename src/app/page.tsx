@@ -172,7 +172,6 @@ export default function Home() {
         ) : (
           <ul className="text-sm space-y-2">
             {cartItems.map((variant) => {
-              console.log("Cart Item:", variant); 
               return (
                 <li key={variant.id} className="flex justify-between items-center">
                   <div className="flex items-center space-x-2">
